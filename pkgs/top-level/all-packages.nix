@@ -568,8 +568,6 @@ with pkgs;
 
   coost = callPackage ../development/libraries/coost { };
 
-  crc = callPackage ../applications/networking/cluster/crc { };
-
   confetty = callPackage ../applications/misc/confetty { };
 
   confy = callPackage ../applications/misc/confy { };
@@ -9987,8 +9985,6 @@ with pkgs;
 
   linuxwave = callPackage ../tools/audio/linuxwave { };
 
-  littlefs-fuse = callPackage ../tools/filesystems/littlefs-fuse { };
-
   lksctp-tools = callPackage ../os-specific/linux/lksctp-tools { };
 
   lldpd = callPackage ../tools/networking/lldpd { };
@@ -12491,7 +12487,7 @@ with pkgs;
   qarte = libsForQt5.callPackage ../applications/video/qarte { };
 
   qdrant = darwin.apple_sdk_11_0.callPackage ../servers/search/qdrant {
-    inherit (darwin.apple_sdk_11_0.frameworks) Security;
+    inherit (darwin.apple_sdk_11_0.frameworks) Security SystemConfiguration;
   };
 
   qlcplus = libsForQt5.callPackage ../applications/misc/qlcplus { };
@@ -33253,7 +33249,7 @@ with pkgs;
   lame = callPackage ../development/libraries/lame { };
 
   labwc = callPackage ../by-name/la/labwc/package.nix {
-    wlroots = wlroots_0_16;
+    wlroots = wlroots_0_17;
   };
 
   larswm = callPackage ../applications/window-managers/larswm { };
