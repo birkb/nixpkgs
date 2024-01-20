@@ -809,6 +809,7 @@ in {
   stunnel = handleTest ./stunnel.nix {};
   sudo = handleTest ./sudo.nix {};
   sudo-rs = handleTest ./sudo-rs.nix {};
+  suwayomi-server = handleTest ./suwayomi-server.nix {};
   swap-file-btrfs = handleTest ./swap-file-btrfs.nix {};
   swap-partition = handleTest ./swap-partition.nix {};
   swap-random-encryption = handleTest ./swap-random-encryption.nix {};
@@ -943,6 +944,7 @@ in {
   vsftpd = handleTest ./vsftpd.nix {};
   warzone2100 = handleTest ./warzone2100.nix {};
   wasabibackend = handleTest ./wasabibackend.nix {};
+  watchdogd = handleTest ./watchdogd.nix {};
   webhook = runTest ./webhook.nix;
   wiki-js = handleTest ./wiki-js.nix {};
   wine = handleTest ./wine.nix {};

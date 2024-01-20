@@ -2846,8 +2846,6 @@ with pkgs;
     withGtk = true;
   };
 
-  stella = callPackage ../applications/emulators/stella { };
-
   tamatool = callPackage ../applications/emulators/tamatool { };
 
   termtekst = callPackage ../applications/emulators/termtekst { };
@@ -3847,6 +3845,8 @@ with pkgs;
   fspy = callPackage ../applications/misc/fspy { };
 
   fluffychat = callPackage  ../applications/networking/instant-messengers/fluffychat { };
+
+  fluffychat-web = fluffychat.override { targetFlutterPlatform = "web"; };
 
   fxlinuxprintutil = callPackage ../tools/misc/fxlinuxprintutil { };
 
@@ -6629,9 +6629,7 @@ with pkgs;
 
   bbe = callPackage ../tools/misc/bbe { };
 
-  bkcrack = callPackage ../tools/security/bkcrack {
-    inherit (llvmPackages) openmp;
-  };
+  bkcrack = callPackage ../tools/security/bkcrack { };
 
   bdsync = callPackage ../tools/backup/bdsync { };
 
@@ -10184,7 +10182,7 @@ with pkgs;
   };
 
   meilisearch = callPackage ../servers/search/meilisearch {
-    inherit (darwin.apple_sdk_11_0.frameworks) Security;
+    inherit (darwin.apple_sdk_11_0.frameworks) Security SystemConfiguration;
   };
 
   memtester = callPackage ../tools/system/memtester { };
@@ -22704,11 +22702,9 @@ with pkgs;
 
   libfido2 = callPackage ../development/libraries/libfido2 {};
 
-  libfilezilla =
-    pin-to-gcc12-if-gcc13
-      (darwin.apple_sdk_11_0.callPackage ../development/libraries/libfilezilla {
-        inherit (darwin.apple_sdk_11_0.frameworks) ApplicationServices;
-      });
+  libfilezilla = darwin.apple_sdk_11_0.callPackage ../development/libraries/libfilezilla {
+    inherit (darwin.apple_sdk_11_0.frameworks) ApplicationServices;
+  };
 
   libfishsound = callPackage ../development/libraries/libfishsound { };
 
@@ -26648,8 +26644,6 @@ with pkgs;
   inherit (callPackages ../servers/mpd {
     inherit (darwin.apple_sdk.frameworks) AudioToolbox AudioUnit;
   }) mpd mpd-small mpdWithFeatures;
-
-  libmpdclient = callPackage ../servers/mpd/libmpdclient.nix { };
 
   mpdscribble = callPackage ../tools/misc/mpdscribble { };
 
